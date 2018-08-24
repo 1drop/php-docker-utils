@@ -5,7 +5,7 @@ FROM webdevops/php:${PHP_VERSION}
 ARG ANSISTRANO_DEPLOY_VERSION
 ARG ANSISTRANO_ROLLBACK_VERSION
 RUN apt-install ansible \
-    && ansible-galaxy install ansistrano.deploy,${ANSISTRANO_DEPLOY_VERSION} ansistrano.rollback,${ANSISTRANO_DEPLOY_VERSION}
+    && ansible-galaxy install ansistrano.deploy,${ANSISTRANO_DEPLOY_VERSION} ansistrano.rollback,${ANSISTRANO_ROLLBACK_VERSION}
 # Add git lfs
 ARG GIT_LFS_VERSION
 RUN wget -O git-lfs.tar.gz https://github.com/git-lfs/git-lfs/releases/download/v${GIT_LFS_VERSION}/git-lfs-linux-amd64-${GIT_LFS_VERSION}.tar.gz \
