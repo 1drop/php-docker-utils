@@ -84,7 +84,7 @@ commandTests:
   - name: "Check PHP Copy paste detector"
     command: "phpcpd"
     args: ["--version"]
-    expectedOutput: ["phpcpd 3"]
+    expectedOutput: ["phpcpd"]
   - name: "Check PHP Static Code Analyzer"
     command: "phpstan"
     args: ["--version"]
