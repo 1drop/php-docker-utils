@@ -6,7 +6,7 @@ ARG ANSISTRANO_ROLLBACK_VERSION
 FROM webdevops/php:${PHP_VERSION}
 
 # Add git lfs
-RUN curl -Lo git-lfs.tar.gz https://github.com/git-lfs/git-lfs/releases/download/v${GIT_LFS_VERSION}/git-lfs-linux-amd64-${GIT_LFS_VERSION}.tar.gz \
+RUN wget -O git-lfs.tar.gz https://github.com/git-lfs/git-lfs/releases/download/v${GIT_LFS_VERSION}/git-lfs-linux-amd64-${GIT_LFS_VERSION}.tar.gz \
     && tar xzf git-lfs.tar.gz && cd git-lfs-${GIT_LFS_VERSION} && ./install.sh && cd .. && rm -rf git-lfs*
 # Add ansible and ansistrano
 RUN apt-install ansible \
