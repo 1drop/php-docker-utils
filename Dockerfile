@@ -13,5 +13,5 @@ RUN wget -O git-lfs.tar.gz https://github.com/git-lfs/git-lfs/releases/download/
 # Install utilities defined in composer.json globally
 ENV PATH "/root/.composer/vendor/bin:$PATH"
 COPY composer.json /root/.composer/composer.json
-RUN composer global install -ao --no-dev \
+RUN composer global install --no-progress -ao --no-dev \
     && composer clearcache
