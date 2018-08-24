@@ -1,0 +1,12 @@
+{
+    "require": {
+        "deployer/deployer": "*",
+        "mickaelandrieu/xml-linter": "*",
+        "sensiolabs/security-checker": "*",
+        "phpunit/phpunit": "*",
+        "friendsofphp/php-cs-fixer": "*",
+        "phpmd/phpmd": "*",
+        "sebastian/phpcpd": "*",
+        "phpstan/phpstan-shim": "*"
+    }
+}

@@ -1,0 +1,91 @@
+schemaVersion: "2.0.0"
+
+commandTests:
+  - name: "SSH Agent"
+    command: "which"
+    args: ["ssh-agent"]
+    expectedOutput: ["/usr/bin/ssh-agent"]
+  - name: "Rsync"
+    command: "rsync"
+    args: ["--version"]
+    expectedOutput: ["rsync  version 3"]
+  - name: "Curl"
+    command: "curl"
+    args: ["--version"]
+    expectedOutput: ["curl 7"]
+  - name: "PHP Version"
+    command: "php"
+    args: ["-v"]
+    expectedOutput: ["PHP ###PHP_VERSION###"]
+  - name: "No PHP errors"
+    command: "php"
+    args: ["-v"]
+    excludedOutput:
+      - "PHP Warning"
+      - "PHP Error"
+      - "PHP Fatal"
+  - name: "PHP modules are available"
+    command: "php"
+    args: ["-m"]
+    expectedOutput:
+      - "json"
+      - "soap"
+      - "intl"
+      - "bcmath"
+      - "zip"
+      - "xml"
+      - "Phar"
+      - "pdo_mysql"
+      - "pcre"
+      - "mbstring"
+      - "curl"
+  - name: "PATH variable"
+    command: "printenv"
+    args: ["PATH"]
+    expectedOutput:
+      - "/root/.composer/vendor/bin"
+      - "/usr/local/bin"
+  - name: "Composer"
+    command: "composer"
+    args: ["-V"]
+    expectedOutput: ["Composer version 1"]
+  - name: "Check ansible"
+    command: "ansible"
+    args: ["--version"]
+    expectedOutput: ["ansible 2"]
+  - name: "Check git lfs"
+    command: "git-lfs"
+    args: ["version"]
+    expectedOutput: ["git-lfs"]
+  - name: "Check deployer"
+    command: "dep"
+    args: ["-v"]
+    expectedOutput: ["Deployer master"]
+  - name: "Check XML-Linter"
+    command: "xml-linter"
+    args: ["-V"]
+    expectedOutput: ["xml-linter 1"]
+  - name: "Check Security-Checker"
+    command: "security-checker"
+    args: ["-v"]
+    expectedOutput: ["SensioLabs Security Checker 4"]
+  - name: "Check PHPUnit"
+    command: "phpunit"
+    args: ["--version"]
+    expectedOutput: ["PHPUnit"]
+  - name: "Check PHP Codestyle Fixer"
+    command: "php-cs-fixer"
+    args: ["-V"]
+    expectedOutput: ["PHP CS Fixer"]
+  - name: "Check PHP Messdetector"
+    command: "phpmd"
+    args: ["--version"]
+    expectedOutput: ["PHPMD"]
+  - name: "Check PHP Copy paste detector"
+    command: "phpcpd"
+    args: ["--version"]
+    expectedOutput: ["phpcpd 3"]
+  - name: "Check PHP Static Code Analyzer"
+    command: "phpstan"
+    args: ["--version"]
+    expectedOutput: ["PHPStan - PHP Static Analysis Tool"]
