@@ -9,34 +9,34 @@ image: docker
     - 'mv container-structure-test-linux-amd64 /usr/local/bin/container-structure-test'
     #- 'docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASS'
   script:
-    - docker build --build-arg PHP_VERSION=${PHP_VERSION} --build-arg git_lfs_version=${GIT_LFS_VERSION} --build-arg ANSISTRANO_DEPLOY_VERSION=${ANSISTRANO_DEPLOY_VERSION} --build-arg ANSISTRANO_ROLLBACK_VERSION=${ANSISTRANO_ROLLBACK_VERSION} --no-cache -t 1drop/php-${IMAGE_VERSION}-docker-utils .
+    - docker build --build-arg PHP_VERSION=${PHP_VERSION} --build-arg GIT_LFS_VERSION=${GIT_LFS_VERSION} --build-arg ANSISTRANO_DEPLOY_VERSION=${ANSISTRANO_DEPLOY_VERSION} --build-arg ANSISTRANO_ROLLBACK_VERSION=${ANSISTRANO_ROLLBACK_VERSION} --no-cache -t 1drop/php-${IMAGE_VERSION}-docker-utils .
     - sed -i 's@###PHP_VERSION###@'"$PHP_VERSION"'@' test.yaml
     - /usr/local/bin/container-structure-test test --image 1drop/php-${IMAGE_VERSION}-docker-utils --config test.yaml
     #- docker push 1drop/php-${IMAGE_VERSION}-docker-utils
 
 php70:
-  <<: *template
   variables:
     IMAGE_VERSION: "70"
     PHP_VERSION: "7.0"
     GIT_LFS_VERSION: "2.3.4"
     ANSISTRANO_DEPLOY_VERSION: "1.12.0"
     ANSISTRANO_ROLLBACK_VERSION: "1.5.0"
+  <<: *template
 
 php71:
-  <<: *template
   variables:
     IMAGE_VERSION: "71"
     PHP_VERSION: "7.1"
     GIT_LFS_VERSION: "2.3.4"
     ANSISTRANO_DEPLOY_VERSION: "1.12.0"
     ANSISTRANO_ROLLBACK_VERSION: "1.5.0"
+  <<: *template
 
 php72:
-  <<: *template
   variables:
     IMAGE_VERSION: "72"
     PHP_VERSION: "7.2"
     GIT_LFS_VERSION: "2.3.4"
     ANSISTRANO_DEPLOY_VERSION: "1.12.0"
     ANSISTRANO_ROLLBACK_VERSION: "1.5.0"
+  <<: *template
