@@ -89,3 +89,7 @@ commandTests:
     command: "phpstan"
     args: ["--version"]
     expectedOutput: ["PHPStan - PHP Static Analysis Tool"]
+  - name: "Check PHP code sniffer"
+    command: "phpcs"
+    args: ["--version"]
+    expectedOutput: ["PHP_CodeSniffer"]

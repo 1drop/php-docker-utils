@@ -20,6 +20,7 @@ and tests them using [container structure tests](https://github.com/GoogleContai
 * phpunit
 * phpcpd
 * phpstan
+* phpcs
 
 **Security:**
 

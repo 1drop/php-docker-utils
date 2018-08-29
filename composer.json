@@ -7,6 +7,7 @@
         "friendsofphp/php-cs-fixer": "*",
         "phpmd/phpmd": "*",
         "sebastian/phpcpd": "*",
-        "phpstan/phpstan-shim": "*"
+        "phpstan/phpstan-shim": "*",
+        "squizlabs/php_codesniffer": "*"
     }
 }
