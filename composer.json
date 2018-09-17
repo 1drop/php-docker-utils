@@ -8,6 +8,7 @@
         "phpmd/phpmd": "*",
         "sebastian/phpcpd": "*",
         "phpstan/phpstan-shim": "*",
-        "squizlabs/php_codesniffer": "*"
+        "squizlabs/php_codesniffer": "*",
+        "hirak/prestissimo": "*"
     }
 }
