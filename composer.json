@@ -9,6 +9,8 @@
         "sebastian/phpcpd": "*",
         "phpstan/phpstan-shim": "*",
         "squizlabs/php_codesniffer": "*",
-        "hirak/prestissimo": "*"
+        "hirak/prestissimo": "*",
+        "jakub-onderka/php-parallel-lint": "*",
+        "jakub-onderka/php-console-highlighter": "*"
     }
 }

@@ -93,3 +93,7 @@ commandTests:
     command: "phpcs"
     args: ["--version"]
     expectedOutput: ["PHP_CodeSniffer"]
+  - name: "Check PHP parallel linter"
+    command: "parallel-lint"
+    args: ["--version"]
+    expectedOutput: ["PHP Parallel Lint version"]
