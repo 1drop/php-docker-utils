@@ -68,7 +68,7 @@ commandTests:
   - name: "Check Security-Checker"
     command: "security-checker"
     args: ["-v"]
-    expectedOutput: ["SensioLabs Security Checker 4"]
+    expectedOutput: ["SensioLabs Security Checker"]
   - name: "Check PHPUnit"
     command: "phpunit"
     args: ["--version"]
