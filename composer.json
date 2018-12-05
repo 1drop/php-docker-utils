@@ -10,6 +10,7 @@
         "phpstan/phpstan-shim": "*",
         "squizlabs/php_codesniffer": "*",
         "hirak/prestissimo": "*",
+        "localheinz/composer-normalize": "*",
         "jakub-onderka/php-parallel-lint": "*",
         "jakub-onderka/php-console-highlighter": "*"
     }
