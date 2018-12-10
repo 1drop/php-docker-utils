@@ -2,6 +2,7 @@
     "require": {
         "deployer/deployer": "*",
         "mickaelandrieu/xml-linter": "*",
+        "sclable/xml-lint": "*",
         "sensiolabs/security-checker": "*",
         "phpunit/phpunit": "*",
         "friendsofphp/php-cs-fixer": "*",
