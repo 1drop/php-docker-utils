@@ -48,7 +48,7 @@ commandTests:
   - name: "Composer"
     command: "composer"
     args: ["-V"]
-    expectedOutput: ["Composer 1"]
+    expectedOutput: ["Composer"]
   - name: "Check ansible"
     command: "ansible"
     args: ["--version"]
