@@ -48,7 +48,7 @@ commandTests:
   - name: "Composer"
     command: "composer"
     args: ["-V"]
-    expectedOutput: ["Composer version 1"]
+    expectedOutput: ["Composer 1"]
   - name: "Check ansible"
     command: "ansible"
     args: ["--version"]
@@ -96,4 +96,4 @@ commandTests:
   - name: "Check PHP parallel linter"
     command: "parallel-lint"
     args: ["--version"]
-    expectedOutput: ["PHP Parallel Lint version"]
+    expectedOutput: ["Parallel Lint"]
