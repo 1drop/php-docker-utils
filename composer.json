@@ -1,6 +1,7 @@
 {
     "require": {
         "deployer/deployer": "*",
+        "deployer/recipes": "*",
         "mickaelandrieu/xml-linter": "*",
         "sclable/xml-lint": "*",
         "sensiolabs/security-checker": "*",
