@@ -7,6 +7,7 @@ Builds images:
 1drop/php-70-docker-utils
 1drop/php-71-docker-utils
 1drop/php-72-docker-utils
+1drop/php-73-docker-utils
 ```
 
 and tests them using [container structure tests](https://github.com/GoogleContainerTools/container-structure-test) before pushing them to [DockerHub](https://hub.docker.com/r/1drop).

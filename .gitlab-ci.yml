@@ -40,3 +40,12 @@ php72:
     ANSISTRANO_DEPLOY_VERSION: "1.12.0"
     ANSISTRANO_ROLLBACK_VERSION: "1.5.0"
   <<: *template
+
+php73:
+  variables:
+    IMAGE_VERSION: "73"
+    PHP_VERSION: "7.3"
+    GIT_LFS_VERSION: "2.3.4"
+    ANSISTRANO_DEPLOY_VERSION: "1.12.0"
+    ANSISTRANO_ROLLBACK_VERSION: "1.5.0"
+  <<: *template
