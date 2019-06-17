@@ -13,6 +13,10 @@ commandTests:
     command: "curl"
     args: ["--version"]
     expectedOutput: ["curl 7"]
+  - name: "Docker"
+    command: "docker"
+    args: ["--version"]
+    expectedOutput: ["Docker version ###DOCKER_VERSION###"]
   - name: "PHP Version"
     command: "php"
     args: ["-v"]
