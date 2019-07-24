@@ -43,6 +43,7 @@ commandTests:
       - "pcre"
       - "mbstring"
       - "curl"
+      - "vips"
   - name: "PATH variable"
     command: "printenv"
     args: ["PATH"]
@@ -64,7 +65,7 @@ commandTests:
   - name: "Check deployer"
     command: "dep"
     args: ["-v"]
-    expectedOutput: ["Deployer master"]
+    expectedOutput: ["Deployer v6"]
   - name: "Check XML-Linter"
     command: "xml-linter"
     args: ["-V"]

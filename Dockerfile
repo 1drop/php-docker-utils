@@ -1,6 +1,12 @@
 ARG PHP_VERSION
 FROM webdevops/php:${PHP_VERSION}
 
+# Add libvips
+RUN apt-install libvips42 libvips-dev \
+    && printf "\n" | pecl install vips \
+    && echo "extension=vips.so" > /usr/local/etc/php/conf.d/vips.ini \
+    && apt-get purge -y -f --force-yes libvips-dev
+
 # Add ansible and ansistrano
 ARG ANSISTRANO_DEPLOY_VERSION
 ARG ANSISTRANO_ROLLBACK_VERSION
@@ -22,3 +28,6 @@ ENV PATH "/root/.composer/vendor/bin:$PATH"
 COPY composer.json /root/.composer/composer.json
 RUN composer global install --no-progress -ao --no-dev \
     && composer clearcache
+
+# Cleanup
+RUN docker-image-cleanup
