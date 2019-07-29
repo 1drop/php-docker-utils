@@ -66,10 +66,10 @@ commandTests:
     command: "dep"
     args: ["-v"]
     expectedOutput: ["Deployer v6"]
-  - name: "Check XML-Linter"
-    command: "xml-linter"
+  - name: "Check XMLLint"
+    command: "xmllint"
     args: ["-V"]
-    expectedOutput: ["xml-linter 1"]
+    expectedOutput: ["Sclable Xml Lint"]
   - name: "Check Security-Checker"
     command: "security-checker"
     args: ["-v"]
