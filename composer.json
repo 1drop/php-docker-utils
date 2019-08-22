@@ -8,7 +8,7 @@
         "friendsofphp/php-cs-fixer": "^2.0",
         "phpmd/phpmd": "^2.6",
         "sebastian/phpcpd": "*",
-        "phpstan/phpstan-shim": "*",
+        "phpstan/phpstan": "*",
         "phpstan/extension-installer": "*",
         "phpstan/phpstan-doctrine": "*",
         "phpstan/phpstan-symfony": "*",
