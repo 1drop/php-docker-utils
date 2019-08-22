@@ -15,7 +15,8 @@ image: docker
     - /usr/local/bin/container-structure-test test --image 1drop/php-${IMAGE_VERSION}-docker-utils --config test.yaml
     - docker push 1drop/php-${IMAGE_VERSION}-docker-utils
 
-php70:
+# Deprecated (incompatible with PHPStan)
+.php70:
   variables:
     IMAGE_VERSION: "70"
     PHP_VERSION: "7.0"
