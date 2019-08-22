@@ -21,7 +21,7 @@ RUN wget -q -O docker.tgz https://download.docker.com/linux/static/stable/x86_64
 ENV PATH "/root/.composer/vendor/bin:$PATH"
 COPY composer.json /root/.composer/composer.json
 RUN composer global install --no-progress -ao --no-dev \
-    && composer update \
+    && composer global update \
     && composer clearcache
 
 # Cleanup
