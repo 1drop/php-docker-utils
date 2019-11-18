@@ -17,6 +17,15 @@ ARG DOCKER_VERSION
 RUN wget -q -O docker.tgz https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz \
     && tar xzf docker.tgz && cp docker/* /usr/bin/ && rm -rf docker && rm docker.tgz
 
+# Add nodejs and mysql-client (for Shopware)
+ARG NODE_VERSION
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+    && sh -c 'echo "deb http://repo.mysql.com/apt/debian/ stretch mysql-8.0" >> /etc/apt/sources.list.d/mysql.list' \
+    && sh -c 'echo "deb http://repo.mysql.com/apt/debian/ stretch mysql-tools" >> /etc/apt/sources.list.d/mysql.list' \
+    && apt-install dirmngr \
+    && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8C718D3B5072E1F5 \
+    && apt-install nodejs mysql-client
+
 # Install utilities defined in composer.json globally
 ENV PATH "/root/.composer/vendor/bin:$PATH"
 COPY composer.json /root/.composer/composer.json

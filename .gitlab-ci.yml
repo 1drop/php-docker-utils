@@ -9,11 +9,14 @@ image: docker
     - 'mv container-structure-test-linux-amd64 /usr/local/bin/container-structure-test'
     - 'docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASS'
   script:
-    - docker build --build-arg PHP_VERSION=${PHP_VERSION} --build-arg DOCKER_VERSION=${DOCKER_VERSION} --build-arg GIT_LFS_VERSION=${GIT_LFS_VERSION} --build-arg ANSISTRANO_DEPLOY_VERSION=${ANSISTRANO_DEPLOY_VERSION} --build-arg ANSISTRANO_ROLLBACK_VERSION=${ANSISTRANO_ROLLBACK_VERSION} --no-cache -t 1drop/php-${IMAGE_VERSION}-docker-utils .
+    - docker build --build-arg PHP_VERSION=${PHP_VERSION} --build-arg NODE_VERSION=${NODE_VERSION} --build-arg DOCKER_VERSION=${DOCKER_VERSION} --build-arg GIT_LFS_VERSION=${GIT_LFS_VERSION} --build-arg ANSISTRANO_DEPLOY_VERSION=${ANSISTRANO_DEPLOY_VERSION} --build-arg ANSISTRANO_ROLLBACK_VERSION=${ANSISTRANO_ROLLBACK_VERSION} --no-cache -t 1drop/php-${IMAGE_VERSION}-docker-utils .
     - sed -i 's@###PHP_VERSION###@'"$PHP_VERSION"'@' test.yaml
     - sed -i 's@###DOCKER_VERSION###@'"$DOCKER_VERSION"'@' test.yaml
+    - sed -i 's@###NODE_VERSION###@'"$NODE_VERSION"'@' test.yaml
     - /usr/local/bin/container-structure-test test --image 1drop/php-${IMAGE_VERSION}-docker-utils --config test.yaml
     - docker push 1drop/php-${IMAGE_VERSION}-docker-utils
+    - docker tag 1drop/php-${IMAGE_VERSION}-docker-utils 1drop/php-utils:${PHP_VERSION}
+    - docker push 1drop/php-utils:${PHP_VERSION}
 
 # Deprecated (incompatible with PHPStan)
 .php70:
@@ -24,6 +27,7 @@ image: docker
     DOCKER_VERSION: "18.09.6"
     ANSISTRANO_DEPLOY_VERSION: "1.12.0"
     ANSISTRANO_ROLLBACK_VERSION: "1.5.0"
+    NODE_VERSION: "12"
   <<: *template
 
 php71:
@@ -34,6 +38,7 @@ php71:
     DOCKER_VERSION: "18.09.6"
     ANSISTRANO_DEPLOY_VERSION: "1.12.0"
     ANSISTRANO_ROLLBACK_VERSION: "1.5.0"
+    NODE_VERSION: "12"
   <<: *template
 
 php72:
@@ -44,6 +49,7 @@ php72:
     DOCKER_VERSION: "18.09.6"
     ANSISTRANO_DEPLOY_VERSION: "1.12.0"
     ANSISTRANO_ROLLBACK_VERSION: "1.5.0"
+    NODE_VERSION: "12"
   <<: *template
 
 php73:
@@ -54,4 +60,5 @@ php73:
     DOCKER_VERSION: "18.09.6"
     ANSISTRANO_DEPLOY_VERSION: "1.12.0"
     ANSISTRANO_ROLLBACK_VERSION: "1.5.0"
+    NODE_VERSION: "12"
   <<: *template

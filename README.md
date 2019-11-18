@@ -30,3 +30,29 @@ and tests them using [container structure tests](https://github.com/GoogleContai
 **Misc:**
 
 * xml-lint
+
+## Local building
+
+```shell script
+export PHP_VERSION="7.3"
+export DOCKER_VERSION="18.09.6"
+export GIT_LFS_VERSION="2.7.2"
+export ANSISTRANO_ROLLBACK_VERSION="1.5.0"
+export ANSISTRANO_DEPLOY_VERSION="1.12.0"
+export IMAGE_VERSION=73
+export NODE_VERSION=12
+docker build \
+  --build-arg PHP_VERSION=${PHP_VERSION} \
+  --build-arg DOCKER_VERSION=${DOCKER_VERSION} \
+  --build-arg GIT_LFS_VERSION=${GIT_LFS_VERSION} \
+  --build-arg ANSISTRANO_DEPLOY_VERSION=${ANSISTRANO_DEPLOY_VERSION} \
+  --build-arg ANSISTRANO_ROLLBACK_VERSION=${ANSISTRANO_ROLLBACK_VERSION} \
+  --build-arg NODE_VERSION=${NODE_VERSION} \
+  --no-cache -t 1drop/php-${IMAGE_VERSION}-docker-utils .
+```
+
+## Local testing
+
+```shell script
+container-structure-test test --image 1drop/php-73-docker-utils --config test.yaml
+```

@@ -102,3 +102,11 @@ commandTests:
     command: "parallel-lint"
     args: ["--version"]
     expectedOutput: ["Parallel Lint"]
+  - name: "Check NodeJS version"
+    command: "nodejs"
+    args: ["--version"]
+    expectedOutput: ["v###NODE_VERSION###"]
+  - name: "Check MySQL client version"
+    command: "mysql"
+    args: ["--version"]
+    expectedOutput: ["mysql  Ver 8."]
