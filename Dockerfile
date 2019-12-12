@@ -17,17 +17,18 @@ ARG DOCKER_VERSION
 RUN wget -q -O docker.tgz https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz \
     && tar xzf docker.tgz && cp docker/* /usr/bin/ && rm -rf docker && rm docker.tgz
 
+# Add mysql certs and repos
+COPY ./certs /tmp/certs
+RUN apt-key add /tmp/certs/mysql.pub \
+    && sh -c 'echo "deb http://repo.mysql.com/apt/debian/ stretch mysql-8.0" >> /etc/apt/sources.list.d/mysql.list' \
+    && sh -c 'echo "deb http://repo.mysql.com/apt/debian/ stretch mysql-tools" >> /etc/apt/sources.list.d/mysql.list'
+
 # Add nodejs and mysql-client (for Shopware)
 ARG NODE_VERSION
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
-    && sh -c 'echo "deb http://repo.mysql.com/apt/debian/ stretch mysql-8.0" >> /etc/apt/sources.list.d/mysql.list' \
-    && sh -c 'echo "deb http://repo.mysql.com/apt/debian/ stretch mysql-tools" >> /etc/apt/sources.list.d/mysql.list' \
-    && apt-install dirmngr python-dateutil
-
-# Add mysql certs and install it
-COPY ./certs /tmp/certs
-RUN apt-key add /tmp/certs/mysql.pub \
+    && apt-install dirmngr python-dateutil \
     && apt-install nodejs mysql-client
+
 
 # Install utilities defined in composer.json globally
 ENV PATH "/root/.composer/vendor/bin:$PATH"
