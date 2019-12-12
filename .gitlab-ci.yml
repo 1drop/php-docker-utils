@@ -62,3 +62,14 @@ php73:
     ANSISTRANO_ROLLBACK_VERSION: "1.5.0"
     NODE_VERSION: "12"
   <<: *template
+
+php74:
+  variables:
+    IMAGE_VERSION: "74"
+    PHP_VERSION: "7.4"
+    GIT_LFS_VERSION: "2.7.2"
+    DOCKER_VERSION: "18.09.6"
+    ANSISTRANO_DEPLOY_VERSION: "1.12.0"
+    ANSISTRANO_ROLLBACK_VERSION: "1.5.0"
+    NODE_VERSION: "12"
+  <<: *template

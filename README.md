@@ -8,6 +8,7 @@ Builds images:
 1drop/php-71-docker-utils
 1drop/php-72-docker-utils
 1drop/php-73-docker-utils
+1drop/php-74-docker-utils
 ```
 
 and tests them using [container structure tests](https://github.com/GoogleContainerTools/container-structure-test) before pushing them to [DockerHub](https://hub.docker.com/r/1drop).
@@ -34,7 +35,7 @@ and tests them using [container structure tests](https://github.com/GoogleContai
 ## Local building
 
 ```shell script
-export PHP_VERSION="7.3"
+export PHP_VERSION="7.4"
 export DOCKER_VERSION="18.09.6"
 export GIT_LFS_VERSION="2.7.2"
 export ANSISTRANO_ROLLBACK_VERSION="1.5.0"
@@ -54,5 +55,5 @@ docker build \
 ## Local testing
 
 ```shell script
-container-structure-test test --image 1drop/php-73-docker-utils --config test.yaml
+container-structure-test test --image 1drop/php-74-docker-utils --config test.yaml
 ```
