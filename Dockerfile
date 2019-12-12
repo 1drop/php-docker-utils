@@ -22,8 +22,8 @@ ARG NODE_VERSION
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
     && sh -c 'echo "deb http://repo.mysql.com/apt/debian/ stretch mysql-8.0" >> /etc/apt/sources.list.d/mysql.list' \
     && sh -c 'echo "deb http://repo.mysql.com/apt/debian/ stretch mysql-tools" >> /etc/apt/sources.list.d/mysql.list' \
-    && apt-key adv --keyserver keys.gnupg.net --recv-keys 5072E1F5 \
     && apt-install dirmngr python-dateutil \
+    && apt-key adv --keyserver keys.gnupg.net --recv-keys 5072E1F5 \
     && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8C718D3B5072E1F5 \
     && apt-install nodejs mysql-client
 
