@@ -2,6 +2,8 @@ image: docker
 
 .template: &template
   stage: build
+  tags:
+    - gcloud
   before_script:
     - 'apk add curl'
     - 'curl -LO https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64'
@@ -9,7 +11,7 @@ image: docker
     - 'mv container-structure-test-linux-amd64 /usr/local/bin/container-structure-test'
     - 'docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASS'
   script:
-    - docker build --build-arg PHP_VERSION=${PHP_VERSION} --build-arg NODE_VERSION=${NODE_VERSION} --build-arg DOCKER_VERSION=${DOCKER_VERSION} --build-arg GIT_LFS_VERSION=${GIT_LFS_VERSION} --build-arg ANSISTRANO_DEPLOY_VERSION=${ANSISTRANO_DEPLOY_VERSION} --build-arg ANSISTRANO_ROLLBACK_VERSION=${ANSISTRANO_ROLLBACK_VERSION} --no-cache -t 1drop/php-${IMAGE_VERSION}-docker-utils .
+    - docker build --build-arg PHP_VERSION=${PHP_VERSION} --build-arg NODE_VERSION=${NODE_VERSION} --build-arg DOCKER_VERSION=${DOCKER_VERSION} --build-arg DOCKER_COMPOSE_VERSION=${DOCKER_COMPOSE_VERSION} --build-arg GIT_LFS_VERSION=${GIT_LFS_VERSION} --build-arg ANSISTRANO_DEPLOY_VERSION=${ANSISTRANO_DEPLOY_VERSION} --build-arg ANSISTRANO_ROLLBACK_VERSION=${ANSISTRANO_ROLLBACK_VERSION} --no-cache -t 1drop/php-${IMAGE_VERSION}-docker-utils .
     - sed -i 's@###PHP_VERSION###@'"$PHP_VERSION"'@' test.yaml
     - sed -i 's@###DOCKER_VERSION###@'"$DOCKER_VERSION"'@' test.yaml
     - sed -i 's@###DOCKER_COMPOSE_VERSION###@'"$DOCKER_COMPOSE_VERSION"'@' test.yaml
