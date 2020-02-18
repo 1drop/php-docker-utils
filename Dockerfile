@@ -16,6 +16,9 @@ RUN wget -q -O git-lfs.tar.gz https://github.com/git-lfs/git-lfs/releases/downlo
 ARG DOCKER_VERSION
 RUN wget -q -O docker.tgz https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz \
     && tar xzf docker.tgz && cp docker/* /usr/bin/ && rm -rf docker && rm docker.tgz
+ARG DOCKER_COMPOSE_VERSION
+RUN curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose \
+    && chmod +x /usr/local/bin/docker-compose
 
 # Add mysql certs and repos
 COPY ./certs /tmp/certs

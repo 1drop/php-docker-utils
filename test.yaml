@@ -17,6 +17,10 @@ commandTests:
     command: "docker"
     args: ["--version"]
     expectedOutput: ["Docker version ###DOCKER_VERSION###"]
+  - name: "Docker-Compose"
+    command: "docker-compose"
+    args: ["--version"]
+    expectedOutput: ["docker-compose version ###DOCKER_COMPOSE_VERSION###"]
   - name: "PHP Version"
     command: "php"
     args: ["-v"]

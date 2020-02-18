@@ -12,6 +12,7 @@ image: docker
     - docker build --build-arg PHP_VERSION=${PHP_VERSION} --build-arg NODE_VERSION=${NODE_VERSION} --build-arg DOCKER_VERSION=${DOCKER_VERSION} --build-arg GIT_LFS_VERSION=${GIT_LFS_VERSION} --build-arg ANSISTRANO_DEPLOY_VERSION=${ANSISTRANO_DEPLOY_VERSION} --build-arg ANSISTRANO_ROLLBACK_VERSION=${ANSISTRANO_ROLLBACK_VERSION} --no-cache -t 1drop/php-${IMAGE_VERSION}-docker-utils .
     - sed -i 's@###PHP_VERSION###@'"$PHP_VERSION"'@' test.yaml
     - sed -i 's@###DOCKER_VERSION###@'"$DOCKER_VERSION"'@' test.yaml
+    - sed -i 's@###DOCKER_COMPOSE_VERSION###@'"$DOCKER_COMPOSE_VERSION"'@' test.yaml
     - sed -i 's@###NODE_VERSION###@'"$NODE_VERSION"'@' test.yaml
     - /usr/local/bin/container-structure-test test --image 1drop/php-${IMAGE_VERSION}-docker-utils --config test.yaml
     - docker push 1drop/php-${IMAGE_VERSION}-docker-utils
@@ -25,6 +26,7 @@ image: docker
     PHP_VERSION: "7.0"
     GIT_LFS_VERSION: "2.7.2"
     DOCKER_VERSION: "18.09.6"
+    DOCKER_COMPOSE_VERSION: "1.25.4"
     ANSISTRANO_DEPLOY_VERSION: "1.12.0"
     ANSISTRANO_ROLLBACK_VERSION: "1.5.0"
     NODE_VERSION: "12"
@@ -36,6 +38,7 @@ php71:
     PHP_VERSION: "7.1"
     GIT_LFS_VERSION: "2.7.2"
     DOCKER_VERSION: "18.09.6"
+    DOCKER_COMPOSE_VERSION: "1.25.4"
     ANSISTRANO_DEPLOY_VERSION: "1.12.0"
     ANSISTRANO_ROLLBACK_VERSION: "1.5.0"
     NODE_VERSION: "12"
@@ -47,6 +50,7 @@ php72:
     PHP_VERSION: "7.2"
     GIT_LFS_VERSION: "2.7.2"
     DOCKER_VERSION: "18.09.6"
+    DOCKER_COMPOSE_VERSION: "1.25.4"
     ANSISTRANO_DEPLOY_VERSION: "1.12.0"
     ANSISTRANO_ROLLBACK_VERSION: "1.5.0"
     NODE_VERSION: "12"
@@ -58,6 +62,7 @@ php73:
     PHP_VERSION: "7.3"
     GIT_LFS_VERSION: "2.7.2"
     DOCKER_VERSION: "18.09.6"
+    DOCKER_COMPOSE_VERSION: "1.25.4"
     ANSISTRANO_DEPLOY_VERSION: "1.12.0"
     ANSISTRANO_ROLLBACK_VERSION: "1.5.0"
     NODE_VERSION: "12"
@@ -69,6 +74,7 @@ php74:
     PHP_VERSION: "7.4"
     GIT_LFS_VERSION: "2.7.2"
     DOCKER_VERSION: "18.09.6"
+    DOCKER_COMPOSE_VERSION: "1.25.4"
     ANSISTRANO_DEPLOY_VERSION: "1.12.0"
     ANSISTRANO_ROLLBACK_VERSION: "1.5.0"
     NODE_VERSION: "12"

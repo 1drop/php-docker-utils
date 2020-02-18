@@ -37,6 +37,7 @@ and tests them using [container structure tests](https://github.com/GoogleContai
 ```shell script
 export PHP_VERSION="7.4"
 export DOCKER_VERSION="18.09.6"
+export DOCKER_COMPOSE_VERSION="1.25.4"
 export GIT_LFS_VERSION="2.7.2"
 export ANSISTRANO_ROLLBACK_VERSION="1.5.0"
 export ANSISTRANO_DEPLOY_VERSION="1.12.0"
