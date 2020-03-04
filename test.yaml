@@ -114,3 +114,7 @@ commandTests:
     command: "mysql"
     args: ["--version"]
     expectedOutput: ["mysql  Ver 8."]
+  - name: "Check AWS cli"
+    command: "awscli"
+    args: ["--version"]
+    expectedOutput: ["aws-cli/1."]

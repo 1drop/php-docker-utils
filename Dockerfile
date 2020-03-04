@@ -34,6 +34,11 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
     && apt-install dirmngr python-dateutil \
     && apt-install nodejs mysql-client
 
+# Add aws cli
+RUN curl -O https://bootstrap.pypa.io/get-pip.py \
+    && python get-pip.py \
+    && apt-install groff \
+    && pip install awscli
 
 # Install utilities defined in composer.json globally
 ENV PATH "/root/.composer/vendor/bin:$PATH"
