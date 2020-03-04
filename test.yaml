@@ -117,4 +117,4 @@ commandTests:
   - name: "Check AWS cli"
     command: "aws"
     args: ["--version"]
-    expectedOutput: ["aws-cli\/1"]
+    expectedOutput: ["aws-cli\\/1"]
